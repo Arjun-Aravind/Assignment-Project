@@ -1,36 +1,27 @@
 import React, { useState } from 'react';
 
-const StudentForm = () => {
+function StudentForm({ onSubmit }) {
   const [name, setName] = useState('');
   const [dob, setDob] = useState('');
   const [classValue, setClassValue] = useState('');
   const [division, setDivision] = useState('');
   const [gender, setGender] = useState('');
 
-  const handleNameChange = (event) => {
-    setName(event.target.value);
-  };
-
-  const handleDobChange = (event) => {
-    setDob(event.target.value);
-  };
-
-  const handleClassChange = (event) => {
-    setClassValue(event.target.value);
-  };
-
-  const handleDivisionChange = (event) => {
-    setDivision(event.target.value);
-  };
-
-  const handleGenderChange = (event) => {
-    setGender(event.target.value);
-  };
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    // You can perform any further actions with the captured student information here
-    console.log('Student Information:', { name, dob, classValue, division, gender });
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const student = {
+      name,
+      dob,
+      class: classValue,
+      division,
+      gender,
+    };
+    onSubmit(student);
+    setName('');
+    setDob('');
+    setClassValue('');
+    setDivision('');
+    setGender('');
   };
 
   return (
@@ -41,8 +32,7 @@ const StudentForm = () => {
           type="text"
           id="name"
           value={name}
-          onChange={handleNameChange}
-          pattern="[A-Za-z\s]+"
+          onChange={(e) => setName(e.target.value)}
           required
         />
       </div>
@@ -52,31 +42,41 @@ const StudentForm = () => {
           type="date"
           id="dob"
           value={dob}
-          onChange={handleDobChange}
+          onChange={(e) => setDob(e.target.value)}
           required
         />
       </div>
       <div>
         <label htmlFor="class">Class:</label>
-        <select id="class" value={classValue} onChange={handleClassChange} required>
+        <select
+          id="class"
+          value={classValue}
+          onChange={(e) => setClassValue(e.target.value)}
+          required
+        >
           <option value="">Select Class</option>
           <option value="I">I</option>
           <option value="II">II</option>
           <option value="III">III</option>
           <option value="IV">IV</option>
           <option value="V">V</option>
-          <option value="VI">VI</option>
-          <option value="VII">VII</option>
-          <option value="VIII">VIII</option>
-          <option value="IX">IX</option>
+          <option value="V1">V1</option>
+          <option value="V11">V11</option>
+          <option value="V111">V111</option>
+          <option value="1X">1X</option>
           <option value="X">X</option>
-          <option value="XI">XI</option>
-          <option value="XII">XII</option>
+          <option value="X11">X11</option>
+          <option value="X12">X12</option>
         </select>
       </div>
       <div>
         <label htmlFor="division">Division:</label>
-        <select id="division" value={division} onChange={handleDivisionChange} required>
+        <select
+          id="division"
+          value={division}
+          onChange={(e) => setDivision(e.target.value)}
+          required
+        >
           <option value="">Select Division</option>
           <option value="A">A</option>
           <option value="B">B</option>
@@ -85,34 +85,34 @@ const StudentForm = () => {
       </div>
       <div>
         <label>Gender:</label>
-        <label htmlFor="male">
+        <div>
           <input
             type="radio"
             id="male"
             name="gender"
             value="Male"
             checked={gender === 'Male'}
-            onChange={handleGenderChange}
+            onChange={(e) => setGender(e.target.value)}
             required
           />
-          Male
-        </label>
-        <label htmlFor="female">
+          <label htmlFor="male">Male</label>
+        </div>
+        <div>
           <input
             type="radio"
             id="female"
             name="gender"
             value="Female"
             checked={gender === 'Female'}
-            onChange={handleGenderChange}
+            onChange={(e) => setGender(e.target.value)}
             required
           />
-          Female
-        </label>
+          <label htmlFor="female">Female</label>
+        </div>
       </div>
       <button type="submit">Submit</button>
     </form>
   );
-};
+}
 
 export default StudentForm;
