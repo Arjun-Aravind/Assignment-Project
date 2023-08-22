@@ -22,13 +22,13 @@ public class StudentController {
         this.studentService = studentService;
     }
 
-    @GetMapping("/getAll")
+    @GetMapping
     public ResponseEntity<List<Student>> getAllStudents() {
         List<Student> students = studentService.getAllStudents();
         return new ResponseEntity<>(students, HttpStatus.OK);
     }
 
-    @PostMapping("/save")
+    @PostMapping
     public ResponseEntity<Student> addStudent(@Validated @RequestBody Student student) {
         Student addedStudent = studentService.addStudent(student);
         return new ResponseEntity<>(addedStudent, HttpStatus.CREATED);
