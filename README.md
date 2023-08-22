@@ -1,41 +1,71 @@
 # Assignment-Project
 
-Created a FullStack App with React, SpringBoot and MongoDb
+# Student Registration System
 
-## How to use ?
-- This project can be used by cloning the project to your local computer.
-- Clone the project using `https://github.com/Arjun-Aravind/Assignment-Project.git` terminal command.
+A simple web application for student registration, built using React.js for the frontend and Spring Boot with MongoDB for the backend.
 
-## Available Scripts
+## Table of Contents
 
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- [Description](#description)
+- [Features](#features)
+- [Prerequisites](#prerequisites)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Frontend](#frontend)
+- [Backend](#backend)
 
 
-### `npm run eject`
+## Description
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+This project is designed to demonstrate a student registration system where users can register students with their information such as name, date of birth, class, division, and gender. The frontend is built using React.js, and the backend is implemented using Spring Boot with MongoDB as the database.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Features
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- Register new students with their details.
+- View a list of registered students with their information.
+- Validation and error handling for input data.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Prerequisites
+
+Before you begin, ensure you have the following installed:
+
+- Node.js and npm
+- Java Development Kit (JDK)
+- MongoDB
+
+## Installation
+
+1. Clone this repository:
+   ```bash
+   git clone https://github.com/Arjun-Aravind/Assignment-Project.git
+   cd Assignment-Project
+
+
+### Usage
+
+1. Navigate to the frontend directory:
+   ```bash
+   cd frontend
+2. Install frontend dependencies:
+   ```bash
+   npm install
+3. Start the frontend server:
+   ```bash
+   npm start
+
+4. Make sure MongoDB is running.
+5. Open a new terminal window.
+6. Navigate to the backend directory and run the Spring Boot application:
+   ```bash
+   cd backend
+   ./mvnw spring-boot:run
+
+ 
+## Frontend
+ 
+Access the frontend application at: http://localhost:3000
+
+
+## Backend
+
+The backend API is accessible at: http://localhost:8080
