@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import "../App.css";
 
 function Student() {
   const [name, setName] = useState('');
@@ -8,7 +9,7 @@ function Student() {
   const [division, setDivision] = useState('');
   const [gender, setGender] = useState(''); 
   const [students, setUsers] = useState([]);
-  const [error, setError] = useState('');
+  const [errors, setErrors] = useState({});
   // eslint-disable-next-line
   const [submitting, setSubmitting] = useState(false);
 
@@ -20,26 +21,37 @@ function Student() {
   const divisionOptions = ['A', 'B', 'C'];
 
   useEffect(() => {
-    if (!name.match(/^[A-Za-z\s]+$/)) {
-      setError('Name should contain only letters and spaces');
-    } else if (!dob) {
-      setError('Please select a Date of Birth');
-    } else if (!classValue) {
-      setError('Please select a Class');
-    } else if (!division) {
-      setError('Please select a Division');
-    } else if (!gender) {
-      setError('Please select a Gender');
-    } else {
-      setError('');
+    const validationErrors = {};
+
+
+    if (name && !name.match(/^[A-Za-z\s]+$/)) {
+      validationErrors.name = 'Name should contain only letters and spaces';
     }
+
+    if (dob && !dob) {
+      validationErrors.dob = 'Please select a Date of Birth';
+    }
+
+    if (classValue && !classValue) {
+      validationErrors.classValue = 'Please select a Class';
+    }
+
+    if (division && !division) {
+      validationErrors.division = 'Please select a Division';
+    }
+
+    if (gender && !gender) {
+      validationErrors.gender = 'Please select a Gender';
+    }
+
+    setErrors(validationErrors);
   }, [name, dob, classValue, division, gender]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (error) {
-      return;
+    if (Object.keys(errors).length === 0) {
+      // Perform form submission or other actions
     }
 
     setSubmitting(true);
@@ -95,9 +107,9 @@ function Student() {
           type="text"
           value={name}
           onChange={(e) => setName(e.target.value)}
-          pattern="[A-Za-z\s]+"
           required
         />
+        {errors.name && (<p className="error">{errors.name}</p>)}
         </div>
         <br/>
 
@@ -109,6 +121,7 @@ function Student() {
           onChange={(e) => setDob(e.target.value)}
           required
         />
+        {errors.dob && (<p className="error">{errors.dob}</p>)}
 
         <div class="form-group">
             <br/>
@@ -125,6 +138,7 @@ function Student() {
             </option>
           ))}
         </select>
+        {errors.classValue && (<p className="error">{errors.classValue}</p>)}
         </div>
         <br/>
 
@@ -142,6 +156,7 @@ function Student() {
             </option>
           ))}
         </select>
+        {errors.division && (<p className="error">{errors.division}</p>)}
         
 
         <div class="form-group"></div>
@@ -154,6 +169,7 @@ function Student() {
             value="Male"
             checked={gender === 'Male'}
             onChange={() => setGender('Male')}
+            className="radio-button"
           />
           Male &nbsp;
         </label>
@@ -164,13 +180,14 @@ function Student() {
             value="Female"
             checked={gender === 'Female'}
             onChange={() => setGender('Female')}
+            className="radio-button"
           />
           Female
         </label>
+        {errors.gender && (<p className="error">{errors.gender}</p>)}
         <br/>
-            {error && <p className="error">{error}</p>}
             <div class="form-group"></div>  
-            <button   class="btn btn-primary mt-4"  onClick={save}>Register</button>
+            <button   className="btn btn-primary mt-4"  onClick={save} disabled={Object.keys(errors).length > 0}> Register </button>
       </form>
       <br/>
       <br/>
