@@ -3,16 +3,17 @@ import { useEffect, useState } from "react";
 import "../App.css";
 
 function Student() {
+  // State variables for form inputs and data
   const [name, setName] = useState('');
   const [dob, setDob] = useState('');
   const [classValue, setClassValue] = useState('');
   const [division, setDivision] = useState('');
   const [gender, setGender] = useState(''); 
-  const [students, setUsers] = useState([]);
+  const [students, setStudents] = useState([]);
   const [errors, setErrors] = useState({});
-  // eslint-disable-next-line
-  const [submitting, setSubmitting] = useState(false);
+  const setSubmitting = useState(false);
 
+  // Options for class and division select inputs
   const classOptions = [
     'I', 'II', 'III', 'IV', 'V', 'V1', 'V11', 'V111',
     '1X', 'X', 'X11', 'X12'
@@ -66,7 +67,7 @@ function Student() {
   async function Load() {
     try {
       const result = await axios.get("http://localhost:8080/api/v1/students");
-      setUsers(result.data);
+      setStudents(result.data);
       console.log(result.data);
     } catch (err) {
       console.error("Error loading students:", err);
