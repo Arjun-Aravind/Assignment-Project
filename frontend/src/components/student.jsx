@@ -12,6 +12,8 @@ function Student() {
   const [students, setStudents] = useState([]);
   const [errors, setErrors] = useState({});
   const setSubmitting = useState(false);
+  const [registrationSuccess, setRegistrationSuccess] = useState(false);
+
 
   // Options for class and division select inputs
   const classOptions = [
@@ -90,6 +92,7 @@ function Student() {
       setClassValue("");
       setDivision("");
       setGender("");
+      setRegistrationSuccess(true);
       Load();
     } catch (err) {
       alert("Student Registration Failed");
@@ -98,8 +101,9 @@ function Student() {
 
 
    return (
-    <div>
+    <div className="form">
       <h1>Student Registration Form</h1>
+      <br/>
       <div class="container mt-4" ></div>
       <form onSubmit={handleSubmit}>
       <div class="form-group">
@@ -193,6 +197,7 @@ function Student() {
       <br/>
       <br/>
 
+      {registrationSuccess && (
         <div class="container">
       <table class="table table-dark" align="center">
   <thead>
@@ -221,6 +226,7 @@ function Student() {
   </tbody>
 </table>
 </div>
+      )}
 
     </div>
     

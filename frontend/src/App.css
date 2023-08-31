@@ -2,6 +2,51 @@
   text-align: center;
 }
 
+h1 {
+  font-size: 34px;
+  color: #007bff;
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+
+form {
+  background-color: #f2f2f2;
+  margin: 0 auto;
+  max-width: 400px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align:justify;
+}
+
+
+input[type="text"],
+input[type="date"],
+select {
+  border: 1px solid #ccc;
+  padding: 1px;
+  margin-bottom: 3px;
+}
+
+table {
+  background-color: #343a40;
+  color: #fff;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+table td,
+table th {
+  padding: 8px;
+}
+
+table tbody tr:nth-child(even) {
+  background-color: #454d55;
+}
+
+
+
 .radio-button {
   accent-color: #ff4d6e;
 }
