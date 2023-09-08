@@ -4,6 +4,8 @@
 
 A simple web application for student registration, built using React.js for the frontend and Spring Boot with MongoDB for the backend.
 
+Frontend Part - https://arjun-aravind.github.io/Assignment-Project/
+
 ## Table of Contents
 
 - [Description](#description)
