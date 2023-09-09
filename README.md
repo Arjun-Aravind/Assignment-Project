@@ -78,4 +78,6 @@ Access the frontend application at: http://localhost:3000
    cd backend/demo
    ./mvnw spring-boot:run
 
-The backend API is accessible at: http://localhost:8080 - If Whitelabel errorpage appears it means that server is running.
+The backend is accessible at: http://localhost:8080 - If Whitelabel errorpage appears it means that server is running.
+
+Backend API - GET request to http://localhost:8080/api/v1/students
