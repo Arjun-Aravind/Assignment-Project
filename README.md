@@ -12,7 +12,6 @@ Frontend Part - https://arjun-aravind.github.io/Assignment-Project/
 - [Features](#features)
 - [Prerequisites](#prerequisites)
 - [Installation](#installation)
-- [Usage](#usage)
 - [Frontend](#frontend)
 - [Backend](#backend)
 
@@ -43,7 +42,7 @@ Before you begin, ensure you have the following installed:
    cd Assignment-Project
 
 
-### Usage
+## Frontend
 
 1. Navigate to the frontend directory:
    ```bash
@@ -55,19 +54,28 @@ Before you begin, ensure you have the following installed:
    ```bash
    npm start
 
-4. Make sure MongoDB is running.
-5. Open a new terminal window.
-6. Navigate to the backend directory and run the Spring Boot application:
-   ```bash
-   cd backend
-   ./mvnw spring-boot:run
-
- 
-## Frontend
- 
 Access the frontend application at: http://localhost:3000
+
+<br>
 
 
 ## Backend
 
-The backend API is accessible at: http://localhost:8080
+1. Create an Account in Atlas Mongodb.
+2. Create an Organization and create a Project.
+3. Create a deployment and choose the free cluster in any cloud services.
+4. Create an User and add your IP Address to the access list.
+5. Click the connection method and choose connect using Compass and copy the connection string.
+6. Create a new file named .env in the backend/demo/src/main/resources directory and copy the connection details in this format:
+   ```bash
+   MONGO_DATABASE="name of database you created"
+   MONGO_USER="Your username"
+   MONGO_PASSWORD="Password you created"
+   MONGO_CLUSTER="Last part of the connection string you copied earlier. eg:"cluster0.abcdefg.mongodb.net""
+7. Open a new terminal window.
+8. Navigate to the backend directory and run the Spring Boot application:
+   ```bash
+   cd backend/demo
+   ./mvnw spring-boot:run
+
+The backend API is accessible at: http://localhost:8080 - If Whitelabel errorpage appears it means that server is running.
