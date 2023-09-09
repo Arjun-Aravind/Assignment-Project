@@ -66,14 +66,14 @@ Access the frontend application at: http://localhost:3000
 3. Create a deployment and choose the free cluster in any cloud services.
 4. Create an User and add your IP Address to the access list.
 5. Click the connection method and choose connect using Compass and copy the connection string.
-6. Create a new file named .env in the backend/demo/src/main/resources directory and copy the connection details in this format:
+6. Create a new file named .env in the backend/demo/src/main/resources directory and copy the connection details according the format given in the file .env.example :
    ```bash
    MONGO_DATABASE="name of database you created"
    MONGO_USER="Your username"
    MONGO_PASSWORD="Password you created"
    MONGO_CLUSTER="Last part of the connection string you copied earlier. eg:"cluster0.abcdefg.mongodb.net""
-7. Open a new terminal window.
-8. Navigate to the backend directory and run the Spring Boot application:
+8. Open a new terminal window.
+9. Navigate to the backend directory and run the Spring Boot application:
    ```bash
    cd backend/demo
    ./mvnw spring-boot:run
