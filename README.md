@@ -31,7 +31,7 @@ This project is designed to demonstrate a student registration system where user
 Before you begin, ensure you have the following installed:
 
 - Node.js and npm
-- Java Development Kit (JDK)
+- Java Development Kit Version 17 (JDK17)
 - MongoDB
 
 ## Installation
@@ -61,19 +61,8 @@ Access the frontend application at: http://localhost:3000
 
 ## Backend
 
-1. Create an Account in Atlas Mongodb.
-2. Create an Organization and create a Project.
-3. Create a deployment and choose the free cluster in any cloud services.
-4. Create an User and add your IP Address to the access list.
-5. Click the connection method and choose connect using Compass and copy the connection string.
-6. Create a new file named .env in the backend/demo/src/main/resources directory and copy the connection details according the format given in the file .env.example :
-   ```bash
-   MONGO_DATABASE="name of database you created"
-   MONGO_USER="Your username"
-   MONGO_PASSWORD="Password you created"
-   MONGO_CLUSTER="Last part of the connection string you copied earlier. eg:"cluster0.abcdefg.mongodb.net""
-8. Open a new terminal window.
-9. Navigate to the backend directory and run the Spring Boot application:
+1. Open a new terminal window.
+2. Navigate to the backend directory and run the Spring Boot application:
    ```bash
    cd backend/demo
    ./mvnw spring-boot:run
