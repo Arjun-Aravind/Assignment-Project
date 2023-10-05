@@ -9,18 +9,10 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Sequence {
     @Id
     private String id;
-    private long value;
+    private final long value;
 
     public Sequence(String id, long value){
         this.id = id;
-        this.value = value;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public void setValue(long value) {
         this.value = value;
     }
 

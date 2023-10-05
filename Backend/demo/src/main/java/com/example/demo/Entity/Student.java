@@ -38,32 +38,6 @@ public class Student {
 
     private String admissionNumber;
 
-    // Getters and Setters
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setDob(String dob) {
-        this.dob = dob;
-    }
-
-    public void setClassValue(String classValue) {
-        this.classValue = classValue;
-    }
-
-    public void setDivision(String division) {
-        this.division = division;
-    }
-
-    public void setGender(String gender) {
-        this.gender = gender;
-    }
-
     public void setAdmissionNumber(String admissionNumber) {
         this.admissionNumber = admissionNumber;
     }
