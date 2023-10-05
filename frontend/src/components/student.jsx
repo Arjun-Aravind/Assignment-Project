@@ -4,47 +4,56 @@ import "../App.css";
 
 function Student() {
   // State variables for form inputs and data
-  const [name, setName] = useState('');
-  const [dob, setDob] = useState('');
-  const [classValue, setClassValue] = useState('');
-  const [division, setDivision] = useState('');
-  const [gender, setGender] = useState(''); 
+  const [name, setName] = useState("");
+  const [dob, setDob] = useState("");
+  const [classValue, setClassValue] = useState("");
+  const [division, setDivision] = useState("");
+  const [gender, setGender] = useState("");
   const [students, setStudents] = useState([]);
   const [errors, setErrors] = useState({});
-  const setSubmitting = useState(false);
+  // eslint-disable-next-line
+  const [submitting, setSubmitting] = useState(false);
   const [registrationSuccess, setRegistrationSuccess] = useState(false);
-
 
   // Options for class and division select inputs
   const classOptions = [
-    'I', 'II', 'III', 'IV', 'V', 'V1', 'V11', 'V111',
-    '1X', 'X', 'X11', 'X12'
+    "I",
+    "II",
+    "III",
+    "IV",
+    "V",
+    "V1",
+    "V11",
+    "V111",
+    "1X",
+    "X",
+    "X11",
+    "X12",
   ];
 
-  const divisionOptions = ['A', 'B', 'C'];
+  const divisionOptions = ["A", "B", "C"];
 
   useEffect(() => {
     const validationErrors = {};
 
-
     if (name && !name.match(/^[A-Za-z\s]+$/)) {
-      validationErrors.name = 'Name should contain only letters and spaces';
+      validationErrors.name = "Name should contain only letters and spaces";
     }
 
     if (dob && !dob) {
-      validationErrors.dob = 'Please select a Date of Birth';
+      validationErrors.dob = "Please select a Date of Birth";
     }
 
     if (classValue && !classValue) {
-      validationErrors.classValue = 'Please select a Class';
+      validationErrors.classValue = "Please select a Class";
     }
 
     if (division && !division) {
-      validationErrors.division = 'Please select a Division';
+      validationErrors.division = "Please select a Division";
     }
 
     if (gender && !gender) {
-      validationErrors.gender = 'Please select a Gender';
+      validationErrors.gender = "Please select a Gender";
     }
 
     setErrors(validationErrors);
@@ -99,24 +108,23 @@ function Student() {
     }
   }
 
-
-   return (
+  return (
     <div className="form">
       <h1>Student Registration Form</h1>
-      <br/>
-      <div class="container mt-4" ></div>
+      <br />
+      <div class="container mt-4"></div>
       <form onSubmit={handleSubmit}>
-      <div class="form-group">
-        <label>Name: &nbsp;</label>
-        <input
-          type="text"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          required
-        />
-        {errors.name && (<p className="error">{errors.name}</p>)}
+        <div class="form-group">
+          <label>Name: &nbsp;</label>
+          <input
+            type="text"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            required
+          />
+          {errors.name && <p className="error">{errors.name}</p>}
         </div>
-        <br/>
+        <br />
 
         <div class="form-group"></div>
         <label>Date of Birth:&nbsp;</label>
@@ -126,26 +134,26 @@ function Student() {
           onChange={(e) => setDob(e.target.value)}
           required
         />
-        {errors.dob && (<p className="error">{errors.dob}</p>)}
+        {errors.dob && <p className="error">{errors.dob}</p>}
 
         <div class="form-group">
-            <br/>
-        <label>Class:&nbsp;</label>
-        <select
-          value={classValue}
-          onChange={(e) => setClassValue(e.target.value)}
-          required
-        >
-          <option value="">Select Class</option>
-          {classOptions.map((option) => (
-            <option key={option} value={option}>
-              {option}
-            </option>
-          ))}
-        </select>
-        {errors.classValue && (<p className="error">{errors.classValue}</p>)}
+          <br />
+          <label>Class:&nbsp;</label>
+          <select
+            value={classValue}
+            onChange={(e) => setClassValue(e.target.value)}
+            required
+          >
+            <option value="">Select Class</option>
+            {classOptions.map((option) => (
+              <option key={option} value={option}>
+                {option}
+              </option>
+            ))}
+          </select>
+          {errors.classValue && <p className="error">{errors.classValue}</p>}
         </div>
-        <br/>
+        <br />
 
         <div class="form-group"></div>
         <label>Division:&nbsp;</label>
@@ -161,19 +169,18 @@ function Student() {
             </option>
           ))}
         </select>
-        {errors.division && (<p className="error">{errors.division}</p>)}
-        
+        {errors.division && <p className="error">{errors.division}</p>}
 
         <div class="form-group"></div>
-        <br/>
+        <br />
         <label>Gender:&nbsp;</label>
         <label>
           <input
             type="radio"
             name="gender"
             value="Male"
-            checked={gender === 'Male'}
-            onChange={() => setGender('Male')}
+            checked={gender === "Male"}
+            onChange={() => setGender("Male")}
             className="radio-button"
           />
           Male &nbsp;
@@ -183,55 +190,60 @@ function Student() {
             type="radio"
             name="gender"
             value="Female"
-            checked={gender === 'Female'}
-            onChange={() => setGender('Female')}
+            checked={gender === "Female"}
+            onChange={() => setGender("Female")}
             className="radio-button"
           />
           Female
         </label>
-        {errors.gender && (<p className="error">{errors.gender}</p>)}
-        <br/>
-            <div class="form-group"></div>  
-            <button   className="btn btn-primary mt-4"  onClick={save} disabled={Object.keys(errors).length > 0}> Register </button>
+        {errors.gender && <p className="error">{errors.gender}</p>}
+        <br />
+        <div class="form-group"></div>
+        <button
+          className="btn btn-primary mt-4"
+          onClick={save}
+          disabled={Object.keys(errors).length > 0}
+        >
+          {" "}
+          Register{" "}
+        </button>
       </form>
-      <br/>
-      <br/>
+      <br />
+      <br />
 
       {registrationSuccess && (
         <div class="container">
-      <table class="table table-dark" align="center">
-  <thead>
-    <tr>
-      <th scope="col">Student Name</th>
-      <th scope="col">Admission Number</th>
-      <th scope="col">Date of Birth</th>
-      <th scope="col">Class</th>      
-      <th scope="col">Division</th>
-      <th scope="col">Gender</th>
-    </tr>
-  </thead>
-  <tbody>
-    {students.sort((a, b) => a.name.localeCompare(b.name)).map(function fn(student) {
-      return (
-        <tr key={student.admissionNumber}>
-          <td>{student.name}</td>
-          <td>{student.admissionNumber}</td> 
-          <td>{student.dob}</td>
-          <td>{student.classValue}</td>
-          <td>{student.division}</td>
-          <td>{student.gender}</td>          
-        </tr>
-      );
-    })}
-  </tbody>
-</table>
-</div>
+          <table class="table table-dark" align="center">
+            <thead>
+              <tr>
+                <th scope="col">Student Name</th>
+                <th scope="col">Admission Number</th>
+                <th scope="col">Date of Birth</th>
+                <th scope="col">Class</th>
+                <th scope="col">Division</th>
+                <th scope="col">Gender</th>
+              </tr>
+            </thead>
+            <tbody>
+              {students
+                .sort((a, b) => a.name.localeCompare(b.name))
+                .map(function fn(student) {
+                  return (
+                    <tr key={student.admissionNumber}>
+                      <td>{student.name}</td>
+                      <td>{student.admissionNumber}</td>
+                      <td>{student.dob}</td>
+                      <td>{student.classValue}</td>
+                      <td>{student.division}</td>
+                      <td>{student.gender}</td>
+                    </tr>
+                  );
+                })}
+            </tbody>
+          </table>
+        </div>
       )}
-
     </div>
-    
-
-            
   );
-};
+}
 export default Student;
