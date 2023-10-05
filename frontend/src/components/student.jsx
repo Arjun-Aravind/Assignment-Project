@@ -112,9 +112,9 @@ function Student() {
     <div className="form">
       <h1>Student Registration Form</h1>
       <br />
-      <div class="container mt-4"></div>
+      <div className="container mt-4"></div>
       <form onSubmit={handleSubmit}>
-        <div class="form-group">
+        <div className="form-group">
           <label>Name: &nbsp;</label>
           <input
             type="text"
@@ -126,7 +126,7 @@ function Student() {
         </div>
         <br />
 
-        <div class="form-group"></div>
+        <div className="form-group"></div>
         <label>Date of Birth:&nbsp;</label>
         <input
           type="date"
@@ -136,7 +136,7 @@ function Student() {
         />
         {errors.dob && <p className="error">{errors.dob}</p>}
 
-        <div class="form-group">
+        <div className="form-group">
           <br />
           <label>Class:&nbsp;</label>
           <select
@@ -155,7 +155,7 @@ function Student() {
         </div>
         <br />
 
-        <div class="form-group"></div>
+        <div className="form-group"></div>
         <label>Division:&nbsp;</label>
         <select
           value={division}
@@ -171,7 +171,7 @@ function Student() {
         </select>
         {errors.division && <p className="error">{errors.division}</p>}
 
-        <div class="form-group"></div>
+        <div className="form-group"></div>
         <br />
         <label>Gender:&nbsp;</label>
         <label>
@@ -198,7 +198,7 @@ function Student() {
         </label>
         {errors.gender && <p className="error">{errors.gender}</p>}
         <br />
-        <div class="form-group"></div>
+        <div className="form-group"></div>
         <button
           className="btn btn-primary mt-4"
           onClick={save}
@@ -212,8 +212,8 @@ function Student() {
       <br />
 
       {registrationSuccess && (
-        <div class="container">
-          <table class="table table-dark" align="center">
+        <div className="container">
+          <table className="table table-dark" align="center">
             <thead>
               <tr>
                 <th scope="col">Student Name</th>
